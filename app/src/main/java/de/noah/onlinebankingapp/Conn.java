@@ -49,9 +49,10 @@ public class Conn implements Serializable {
             cryptMsg = input_stream.readLine();
             byte[] dec = RSA.decryptByPrivateKey(RSA.decryptBASE64(cryptMsg), privateKeyUser);
             System.out.println(sessionKey);
-            System.out.println("Input is: D6B9F87651E6423628D977556E2CB");
+            System.out.println("Input is: D6B9F87651E6423628D977556E2CADFW");
             System.out.println("Encrypted is:" + cryptMsg);
             sessionKey = RSA.encryptBASE64(dec);
+
             System.out.println("Decrypted" + sessionKey);
             //sessionKey = Arrays.toString(dec);
             sessionKey = new String(dec);
