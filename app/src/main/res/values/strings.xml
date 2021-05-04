@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">OnlineBankingApp</string>
+    <string name="login">LOGIN</string>
+    <string name="crypto_bank">CRYPTO BANK</string>
+    <string name="transfer_money">Transfer money</string>
+    <string name="secure_and_private_payments">Secure and private payments</string>
+    <string name="start_today">Start today</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="donthaveaccount">Don\'t have an account yet</string>
+    <string name="noproblemcreate">No problem create one today</string>
+    <string name="onesecure">100% secure &amp; 100% free</string>
+    <string name="signup_text">SIGNUP</string>
+    <string name="hellousername">HELLO USER</string>
+    <string name="your_balance">Your balance</string>
+    <string name="balance_value">€error</string>
+    <string name="just">Just one more step away</string>
+    <string name="weare">We are Crypto Bank</string>
+    <string name="password_re">Reenter password</string>
+</resources>

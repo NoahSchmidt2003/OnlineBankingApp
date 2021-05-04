@@ -1,0 +1,3 @@
+include ':bankapp'
+include ':app'
+rootProject.name = "OnlineBankingApp"
