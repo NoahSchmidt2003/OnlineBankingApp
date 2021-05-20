@@ -99,6 +99,13 @@ public class SignUp extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which){
                         email_form.setText("");
+                        password_form.setText("");
+                        password_form_reenter.setText("");
+                        email_text.setVisibility(View.VISIBLE);
+                        password_text.setVisibility(View.VISIBLE);
+                        password_text_reenter.setVisibility(View.VISIBLE);
+                        
+
                         dialog.cancel();
                     }
                 }
@@ -175,7 +182,7 @@ public class SignUp extends AppCompatActivity {
         System.out.println("luul" + password + email);
         String SignUPCheck = connection.SignUp(email,password);
         System.out.println("testöö " + SignUPCheck);
-        if(SignUPCheck.equals("")){
+        if(SignUPCheck.equals("success")){
             signUPSuccess.show();
         }else if(SignUPCheck.equals("conn")){
 

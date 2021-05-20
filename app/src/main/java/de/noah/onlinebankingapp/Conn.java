@@ -48,19 +48,20 @@ public class Conn implements Serializable {
 
             cryptMsg = input_stream.readLine();
             byte[] dec = RSA.decryptByPrivateKey(RSA.decryptBASE64(cryptMsg), privateKeyUser);
-            System.out.println(sessionKey);
+
             System.out.println("Input is: D6B9F87651E6423628D977556E2CADFW");
             System.out.println("Encrypted is:" + cryptMsg);
             sessionKey = RSA.encryptBASE64(dec);
-
-            System.out.println("Decrypted" + sessionKey);
-            //sessionKey = Arrays.toString(dec);
-            sessionKey = new String(dec);
-            signature = input_stream.readLine();
-            //sessionKey = "D6B9F87651E6423628D977556E2CA";
-            boolean isCorrect = RSA.verify(dec, publicKeyServer, signature);
-            System.out.println(isCorrect);
+            sessionKey = sessionKey.substring(sessionKey.length() - 32);
             System.out.println(sessionKey);
+
+            signature = input_stream.readLine();
+
+            boolean isCorrect = RSA.verify(RSA.decryptBASE64(sessionKey), publicKeyServer, signature);
+            System.out.println(isCorrect);
+            Hash hash = new Hash(sessionKey);
+            sessionKey = hash.encode();
+            System.out.println("Encrypted: " + sessionKey);
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -68,7 +69,7 @@ public class Conn implements Serializable {
 
     public void handlerOUT(String message){
         try {
-            System.out.println( "the session key  " + sessionKey );
+            System.out.println( "the session key  handlerout" + sessionKey );
             aes256 = new AES256(message, sessionKey);
             cryptMsg = aes256.encrypt();
             output_stream.println(cryptMsg);
@@ -80,10 +81,11 @@ public class Conn implements Serializable {
     }
 
     public String handlerIN(){
-        String msgCrypt;
+        String msgCrypt = "";
         String msg = "";
         try {
             msgCrypt = input_stream.readLine();
+            System.out.println(msgCrypt);
             aes256 = new AES256(msgCrypt, sessionKey);
             msg = aes256.decrypt();
         } catch (Exception e) {
@@ -95,7 +97,6 @@ public class Conn implements Serializable {
     public boolean login(String email, String password){
         boolean check_login = false;
         handlerOUT("login");
-        handlerOUT("email");
         handlerOUT(email);
         handlerOUT(password);
 
@@ -120,7 +121,6 @@ public class Conn implements Serializable {
         String signUPSuccess = "";
         try {
             handlerOUT("signup");
-            handlerOUT("email");
             handlerOUT(email);
             handlerOUT(password);
             message = handlerIN();
@@ -132,7 +132,8 @@ public class Conn implements Serializable {
     }catch (Exception e){
             signUPSuccess = "conn";
         }
-        System.out.println(signUPSuccess);
+        System.out.println("Signup tester");
+        System.out.println("Signup" + signUPSuccess);
         return signUPSuccess;
     }
 

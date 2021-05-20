@@ -15,6 +15,7 @@ public class AES256 implements Serializable {
     public AES256(String text, String secretKey) {
         this.text = text;
         this.secretKey = secretKey;
+
     }
     public String encrypt() {
         byte[] raw;
