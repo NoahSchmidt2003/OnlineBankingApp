@@ -182,12 +182,15 @@ public class SignUp extends AppCompatActivity {
         System.out.println("luul" + password + email);
         String SignUPCheck = connection.SignUp(email,password);
         System.out.println("testöö " + SignUPCheck);
-        if(SignUPCheck.equals("success")){
-            signUPSuccess.show();
-        }else if(SignUPCheck.equals("conn")){
-
-        }else if(SignUPCheck.equals("user")){
-            userTakenError.show();
+        switch (SignUPCheck) {
+            case "success":
+                signUPSuccess.show();
+                break;
+            case "conn":
+                break;
+            case "user":
+                userTakenError.show();
+                break;
         }
 
     }
