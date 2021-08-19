@@ -18,8 +18,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/home_balance_rec_big" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/hello_user"
@@ -27,7 +26,6 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/archivo_black"
         android:letterSpacing="0.08"
-        android:text="@string/hellousername"
         android:textColor="#FFFFFF"
         android:textSize="36sp"
         android:textStyle="bold"
@@ -46,8 +44,7 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.084"
-        app:srcCompat="@drawable/home_balance_rec_small" />
+        app:layout_constraintVertical_bias="0.084" />
 
     <TextView
         android:id="@+id/balance_text"
@@ -55,7 +52,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="132dp"
         android:fontFamily="@font/archivo_black"
-        android:text="@string/your_balance"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -68,7 +64,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/archivo_black"
-        android:text="@string/balance_value"
         android:textColor="#FFFFFF"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"

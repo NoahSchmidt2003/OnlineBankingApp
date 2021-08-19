@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
-        ImageView button_login_signup = (ImageView) findViewById(R.id.button_login_signup);
+        ImageView button_login_signup = (ImageView) findViewById(R.id.getStarted);
         Intent Login = new Intent(this, Login.class);
 
 

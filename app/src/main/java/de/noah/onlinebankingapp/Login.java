@@ -30,22 +30,20 @@ public class Login extends Activity implements Serializable{
         StrictMode.setThreadPolicy(policy);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        final EditText email_form = (EditText)findViewById(R.id.email_address);
-        final EditText password_form = (EditText)findViewById(R.id.password);
-        final TextView email_text = (TextView)findViewById(R.id.email_text);
-        final TextView password_text = (TextView)findViewById(R.id.password_text);
-        final Button button_login = findViewById(R.id.button_login);
-        final Button button_signup = findViewById(R.id.signup_button_big);
+        final EditText email_form = (EditText)findViewById(R.id.login_email);
+        final EditText password_form = (EditText)findViewById(R.id.login_password);
+        final View button_login = findViewById(R.id.button_login);
+        final View button_signup = findViewById(R.id.signup_button);
 
 
         email_form.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                email_text.setVisibility(View.INVISIBLE);
+                if(email_form.getText().toString().equals("Enter your email")){
+                    email_form.setText("");
+                }
                 if(password_form.getText().toString().equals("")){
-                    password_text.setVisibility(View.VISIBLE);
-                }else {
-                    password_text.setVisibility(View.INVISIBLE);
+                    password_form.setText("Enter your password");
                 }
                 return false;
             }
@@ -54,11 +52,11 @@ public class Login extends Activity implements Serializable{
         password_form.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                password_text.setVisibility(View.INVISIBLE);
-                if(email_form.getText().toString().equals("")){
-                    email_text.setVisibility(View.VISIBLE);
-                }else{
-                    email_text.setVisibility(View.INVISIBLE);
+                if(password_form.getText().toString().equals("Enter your password")){
+                    password_form.setText("");
+                }
+                if (email_form.getText().toString().equals("")) {
+                    email_form.setText("Enter your email");
                 }
                 return false;
             }
